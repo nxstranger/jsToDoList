@@ -2,22 +2,17 @@
 <html lang="en">
 <head>
     <title>js test</title>
-    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="src/css/todo.css">
+
 </head>
 <body>
 
 <div id="flex-box">
     <header id="header" class="frame-border">todo</header>
     <div id="actions" class="frame-border">
-        <button>
-            all
-        </button>
-        <button>
-            completed
-        </button>
-        <button>
-            unfinished
-        </button>
+        <button onclick="filterButtons('all')">all</button>
+        <button onclick="filterButtons('completed')">completed</button>
+        <button onclick="filterButtons('unfinished')">unfinished</button>
     </div>
     <div class="new-todo frame-border">
         <button>complete all</button>
@@ -26,98 +21,10 @@
         </label>
     </div>
 
-    <div class="frame-border">
-        <div class="object">
-            <label>
-                <input type="checkbox">
-            </label>
-            <label>
-                <input type="text">
-            </label>
-            <button>delete</button>
-        </div>
+    <div id="todolist" class="frame-border">
+
     </div>
 </div>
-
-
-<script>
-    "use strict";
-    localStorage.setItem("wolfie", "woof")
-
-    class StorageOperator{
-        constructor() {
-            this.toDoArray = JSON.parse(localStorage.getItem("TodoList")) || []
-            console.log(this.toDoArray)
-        }
-
-        getMaxIndex(){
-            let max = 0;
-            for(let elem of this.toDoArray){
-                console.log(elem.index)
-                if (elem.index > max) max = elem.index
-            }
-            return max
-        }
-
-        getListElements(){
-            for(let elem of this.toDoArray){
-                console.log(elem)
-            }
-        }
-        addElement(todoObj){
-            this.toDoArray.push(todoObj)
-            todoObj.index = this.getMaxIndex() + 1
-            localStorage.setItem("TodoList", JSON.stringify(this.toDoArray))
-        }
-
-
-    }
-
-    class TodoObject {
-        constructor(toDoText) {
-            this.index = 0;
-            this.complete = false;
-            this.text = toDoText;
-
-        }
-        updateText(newText){
-            this.text = newText;
-            console.log(this.index, this.text)
-        }
-        updateComplete() {
-            this.complete = !this.complete
-            console.log(this.index, this.complete)
-        }
-    }
-    // localStorage.clear()
-    const fff = new TodoObject("Morning Signing")
-    // console.log(fff)
-    console.log(Object.keys(localStorage))
-
-    const operator = new StorageOperator
-    // operator.addElement(fff)
-
-    operator.getListElements()
-    console.log(`max index: ${operator.getMaxIndex()}`)
-
-
-    // add new objective
-    const inputToDo = document.getElementById('todoInput');
-    inputToDo.addEventListener('keypress', addObjective);
-
-    function addObjective(e) {
-        if (e.key==='Enter') {
-            console.log(e)
-            if (inputToDo.value !== ""){
-                console.log(inputToDo.value)
-                const todoElement = new TodoObject(inputToDo.value)
-                operator.addElement(todoElement)
-                inputToDo.value = ""
-            }
-        }
-    }
-
-
-</script>
+<script src="src/js/main.js"></script>
 </body>
 </html>
