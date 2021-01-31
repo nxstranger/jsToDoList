@@ -152,7 +152,7 @@ class TodoObject {
             }
         })
         input.addEventListener('keypress', (e) => {
-            e.preventDefault()
+            // e.preventDefault()
             console.log(e.key)
             if (e.key === 'Enter' && input.value !== "" ){
                 // console.log("update objective text")

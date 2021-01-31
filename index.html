@@ -8,15 +8,19 @@
 <body>
 
 <div id="flex-box">
-    <header id="header" class="frame-border">toDo</header>
-    <div id="actions" class="controls frame-border">
-        <button class="controls-button" onclick="filterButtons('all')">all</button>
-        <button class="controls-button" onclick="filterButtons('completed')">completed</button>
-        <button class="controls-button" onclick="filterButtons('unfinished')">unfinished</button>
-        <button class="controls-button" onclick="completeAllObjective()">complete all</button>
-        <button class="controls-button" onclick="deleteCompletedObjective()">delete completed</button>
+    <header id="header">toDo</header>
+    <div id="actions" class="controls">
+        <div>
+            <button class="filters-button" onclick="filterButtons('all')">all</button>
+            <button class="filters-button" onclick="filterButtons('completed')">completed</button>
+            <button class="filters-button" onclick="filterButtons('unfinished')">unfinished</button>
+        </div>
+        <div>
+            <button class="controls-button" onclick="completeAllObjective()">complete all</button>
+            <button class="controls-button" onclick="deleteCompletedObjective()">delete completed</button>
+        </div>
     </div>
-    <div class="new-todo frame-border">
+    <div class="new-todo">
         <label>
             <input id="todoInput" placeholder="add objective" type="text" maxlength="150">
         </label>

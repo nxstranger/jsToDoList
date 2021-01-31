@@ -8,9 +8,13 @@ body{
     flex-direction: column;
     width: 480px;
     background: bisque;
-    /*border-radius: 20px;*/
-    /*padding: 0px;*/
     margin: 100px auto;
+
+
+    font: italic 20px "Fira Sans", serif;
+    box-shadow: 0 0 5px 5px rgba(255,140,0,0.25);
+    padding: 5px 10px;
+
 }
 
 #header{
@@ -20,47 +24,66 @@ body{
 
 #todoInput {
     height: 30px;
-    width: 100%;
+    width: calc(100% - 10px);
     border: none;
     outline: none;
     font: italic 20px "Fira Sans", serif;
+    padding: 0 0 0 10px;
+    margin-bottom: 10px;
 }
 
 .controls{
-    height: 40px;
+    height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.controls-button{
-    height: 25px;
+
+.filters-button {
+
+    height: 24px;
     border: none;
-    font: italic bold 15px "Fira Sans", serif;
-    color: #fafafa;
-    border-radius: 4px;
-    background: #ff8c00;
+    font: italic bold 15px "Roboto Light", serif;
+
+    background: bisque;
+    outline: none;
+    padding:  5px 10px;
+}
+
+.filters-button:hover{
+    border-bottom:  1px darkorange solid;
+}
+
+.controls-button{
+    height: 35px;
+    font: italic bold 15px "Roboto Light", serif;
+    border-radius: 5px;
+    border: 1px darkorange solid;
+    background: bisque;
+    outline: none;
+    padding:  7px 10px;
 }
 
 .frame-border {
-    /*display: flex;*/
-    /*justify-content: space-between;*/
     font: italic 20px "Fira Sans", serif;
-    box-shadow: 5px 5px 20px rgba(255,140,0,0.25) ;
-    /*border-radius: 10px;*/
-    padding: 5px 10px;
+    padding: 10px 0 10px 10px;
+    border-bottom: 1px darkorange solid;
 }
 
 .todo-list{
     clear: both;
+    display: flex;
+    flex-direction: column;
 }
 
 .todo-object{
-    height: 1.5em;
+    height: auto;
     clear: both;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 
     background: bisque;
@@ -80,8 +103,6 @@ body{
 
 .elem-list-checkbox+label::before {
     content: '';
-
-    /*display: inline-block;*/
     width: 1em;
     height: 1em;
     flex-shrink: 0;
@@ -100,7 +121,6 @@ body{
 }
 
 .elem-list-checkbox-label{
-    /*text-decoration: line-through;*/
 }
 
 .elem-list-input{
@@ -115,10 +135,12 @@ body{
     align-self: center;
     width: 380px;
     overflow:hidden;
+    word-wrap: break-word;
 }
 
 .elem-list-delete{
     width: 30px;
+    height: 30px;
     background: aliceblue;
     border: none;
     outline: none;
@@ -127,6 +149,8 @@ body{
 
 .todo-object:hover > .elem-list-delete{
     width: 30px;
-    background: darkorange;
+    background: inherit;
     visibility: visible;
+    border: 1px darkorange solid;
+    border-radius: 5px;
 }
