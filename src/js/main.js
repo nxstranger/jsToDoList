@@ -143,8 +143,18 @@ class TodoObject {
     objectiveInputListener(labelId, inputId) {
         let label = document.getElementById(labelId);
         let input = document.getElementById(inputId);
+        input.addEventListener('keydown', (e) =>{
+            console.log(e.key)
+            if (e.key === 'Escape'){
+                console.log("escape pressed")
+                label.style.display = 'flex';
+                input.style.display = 'none';
+            }
+        })
         input.addEventListener('keypress', (e) => {
-            if (e.key==='Enter' && input.value !== "" ){
+            e.preventDefault()
+            console.log(e.key)
+            if (e.key === 'Enter' && input.value !== "" ){
                 // console.log("update objective text")
                 label.style.display = 'flex';
                 input.style.display = 'none';
@@ -158,18 +168,18 @@ class TodoObject {
 }
 
 // localStorage.clear()
-console.log("keys localstorage", Object.keys(localStorage))
+// console.log("keys localstorage", Object.keys(localStorage))
 
 const operator = new StorageOperator
-operator.showAllElements('all')
+operator.showAllElements(filterToDoGlobal)
 
 // add new objective
 const inputToDo = document.getElementById('todoInput');
 inputToDo.addEventListener('keypress', addObjective);
 
-async function completeAllObjective(){
+function completeAllObjective(){
     operator.completeAll()
-    await operator.showAllElements()
+    operator.showAllElements()
 }
 
 function filterButtons(event){

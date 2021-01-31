@@ -1,44 +1,69 @@
-.todo-list{
-    clear: both;
-}
-
-#todoInput {
-    width: 100%;
-    border: none;
+body{
+    background: white;
+    color: #222222;
 }
 
 #flex-box {
     display: flex;
     flex-direction: column;
     width: 480px;
-    margin: auto;
+    background: bisque;
+    /*border-radius: 20px;*/
+    /*padding: 0px;*/
+    margin: 100px auto;
 }
 
-body{
-    background: cornsilk;
+#header{
+    text-align: center;
+    font: italic 30px "Fira Sans", serif;
+}
+
+#todoInput {
+    height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font: italic 20px "Fira Sans", serif;
 }
 
 .controls{
+    height: 40px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+
+.controls-button{
+    height: 25px;
+    border: none;
+    font: italic bold 15px "Fira Sans", serif;
+    color: #fafafa;
+    border-radius: 4px;
+    background: #ff8c00;
 }
 
 .frame-border {
     /*display: flex;*/
     /*justify-content: space-between;*/
     font: italic 20px "Fira Sans", serif;
-    border: darkorange 1px solid;
-    padding: 2px 10px;
-    margin-top: 10px;
+    box-shadow: 5px 5px 20px rgba(255,140,0,0.25) ;
+    /*border-radius: 10px;*/
+    padding: 5px 10px;
+}
+
+.todo-list{
+    clear: both;
 }
 
 .todo-object{
+    height: 1.5em;
     clear: both;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    background: azure;
+    background: bisque;
 }
 
 .elem-list-checkbox{
@@ -80,12 +105,16 @@ body{
 
 .elem-list-input{
     width: 380px;
+    font: italic 20px "Fira Sans", serif;
     display: none;
     border: none;
+    outline: none;
 }
 
 .elem-list-input-label{
+    align-self: center;
     width: 380px;
+    overflow:hidden;
 }
 
 .elem-list-delete{
@@ -101,18 +130,3 @@ body{
     background: darkorange;
     visibility: visible;
 }
-
-/*!*.elem-list-delete:before {*!*/
-/*!*    visibility: visible;*!*/
-/*!*}*!*/
-
-/*.elem-list-delete:after {*/
-/*    content: "";*/
-/*    !*visibility: visible;*!*/
-/*}*/
-
-/*.elem-list-delete:hover{*/
-/*    width: 30px;*/
-/*    background: darkorange;*/
-/*    !*visibility: visible;*!*/
-/*}*/
